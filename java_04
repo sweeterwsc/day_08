@@ -1,0 +1,296 @@
+package com.wsc3;
+
+public class Test01 {
+    public static void main(String[] args) {
+//        com.wsc1.Test test = new com.wsc1.Test();
+//        System.out.println(test);
+//        com.wsc2.Dog dog2 = new com.wsc2.Dog();
+
+        Person p = new Person();
+        Person smith = new Person("smith", 3000, 6700);
+        smith.info();
+//        p.setName("小花dgd");
+//        p.setAge(23);
+//        p.setSalary(5678);
+//        p.info();
+    }
+}
+class Person{
+    public String name;
+    private  int age;
+    private  double salary;// 属性私有
+
+    // 创建构造器
+    public Person(){
+    }
+    public Person(String name, int age, double salary) {
+//        this.name = name;
+//        this.age = age;
+//        this.salary = salary;  这样的话，下面的封装传参失效
+        setName(name);
+        setAge(age);
+        setSalary(salary);
+    }
+
+    public String getName() {  //
+        return name;
+    }
+    public void setName(String name) {  //
+          if(name.length() >= 2 && name.length() <= 6){
+              this.name = name;
+          }else {
+              System.out.println("请输入有效的");
+              this.name = "无名氏";
+          }
+    }
+
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        if(age >= 1 && age <= 120){
+            this.age = age;
+        }else this.age = 18;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+    public void info(){
+        System.out.println("信息为：" + "姓名:" + name + "  年龄:" +age + "  工资:" +salary);
+    }
+}
+package com.wsc3;
+
+public class Test01 {
+    public static void main(String[] args) {
+//        com.wsc1.Test test = new com.wsc1.Test();
+//        System.out.println(test);
+//        com.wsc2.Dog dog2 = new com.wsc2.Dog();
+
+        Person p = new Person();
+        Person smith = new Person("smith", 3000, 6700);
+        smith.info();
+//        p.setName("小花dgd");
+//        p.setAge(23);
+//        p.setSalary(5678);
+//        p.info();
+    }
+}
+class Person{
+    public String name;
+    private  int age;
+    private  double salary;// 属性私有
+
+    // 创建构造器
+    public Person(){
+    }
+    public Person(String name, int age, double salary) {
+//        this.name = name;
+//        this.age = age;
+//        this.salary = salary;  这样的话，下面的封装传参失效
+        setName(name);
+        setAge(age);
+        setSalary(salary);
+    }
+
+    public String getName() {  //
+        return name;
+    }
+    public void setName(String name) {  //
+          if(name.length() >= 2 && name.length() <= 6){
+              this.name = name;
+          }else {
+              System.out.println("请输入有效的");
+              this.name = "无名氏";
+          }
+    }
+
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        if(age >= 1 && age <= 120){
+            this.age = age;
+        }else this.age = 18;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+    public void info(){
+        System.out.println("信息为：" + "姓名:" + name + "  年龄:" +age + "  工资:" +salary);
+    }
+}
+
+
+
+package com.wsc2;
+
+class Account {
+    private String name;
+    private double balance;
+    private String pwd;
+    public Account() {
+    }
+    public Account(String name, double balance, String pwd) {
+        setBalance(balance);
+        setName(name);
+        setPwd(pwd);
+    }
+
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        if(name.length() >= 2 && name.length() <= 4){
+            this.name = name;
+        }else {
+            System.out.println("姓名错误");
+            this.name = "不晓得";
+        }
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+    public void setBalance(double balance) {
+        if(balance > 20)  this.balance = balance;
+        else{
+            System.out.println("余额输入不对");
+            this.balance = 0;
+        }
+    }
+
+    public String getPwd() {
+        return pwd;
+    }
+    public void setPwd(String pwd) {
+        if(pwd.length() == 6)  this.pwd = pwd;
+        else{
+            System.out.println("密码必须为6位");
+            this.pwd = "000000";
+        }
+    }
+
+    public void info(){
+        System.out.println("名字："+ name +"  余额位："+ balance +"  密码为："+ pwd);
+    }
+}
+
+package com.wsc2;
+
+public class Test {
+    public static void main(String[] args) {
+       Account account = new Account("小明rewffewr",12,"2323");
+       account.info();
+    }
+}
+
+
+
+
+package com.wsc1;
+public class A {
+    public int n1 = 100;
+    protected int n2 = 200;
+    int n3 = 300;
+    private int n4 = 400;
+    public void m1(){
+        System.out.println("n1="+n1+"  n2="+n2+"  n3="+n3+"  n4="+n4);
+    }
+}
+
+package com.wsc1;
+
+public class B {
+    public void say(){
+        A a = new A();
+        //  在同一个包下，可以访问 public ,protected ,默认，不能访问private
+        System.out.println("n1="+a.n1+"  n2="+a.n2+"  n3="+a.n3);
+    }
+}
+
+package com.wsc1;
+import java.util.Arrays;
+import com.wsc1.A;
+
+public class Test {
+    public static void main(String[] args) {
+//        int[] arr = {1,2,54,21,564,21,23,34};
+//        Arrays.sort(arr);
+//        for (int i = 0; i < arr.length; i++) {
+//            System.out.print(arr[i]+" ");
+//        }
+        A a = new A();
+        a.m1();//  同一个类下，都可以访问
+        B b = new B();
+        b.say();//  同一个包，不同类，除了private外都可以访问
+
+    }
+}
+
+
+
+
+package com.Extend.improve_;
+
+// 父类，是pupil和graduate的父类
+public class Student {
+    // 共有属性
+    public String name;
+    public int age;
+    private double score;
+    // 共有方法
+    public void setScore(double score) {
+        this.score = score;
+    }
+    public void show(){
+        System.out.println("学生名"+name+"  年龄"+age+"  成绩"+score);
+    }
+}
+
+package com.Extend.improve_;
+
+public class Pupil extends Student{
+    public void testing(){
+        System.out.println("小学生"+name+"正在考小学数学.....");
+    }
+}
+
+package com.Extend.improve_;
+
+public class Graduate extends Student{
+    public void testing(){
+        System.out.println("大学生"+name+"正在考大学数学.....");
+    }
+}
+
+package com.Extend.improve_;
+
+public class Test_extends {
+    public static void main(String[] args) {
+        Pupil pupil = new Pupil();
+        pupil.name = "爱仕达";
+        pupil.age = 10;
+        pupil.testing();
+        pupil.setScore(54.5);
+        pupil.show();
+        System.out.println("================");
+        Graduate graduate = new Graduate();
+        graduate.name = "孙无踪";
+        graduate.age = 23;
+        graduate.testing();
+        graduate.setScore(78);
+        graduate.show();
+    }
+}
+
+
+
